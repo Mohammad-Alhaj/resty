@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {useState} from 'react'
 import './app.scss';
 
 // Let's talk about using index.js and some other name in the component folder
@@ -9,18 +9,10 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 
-class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
-
-  callApi = (requestParams) => {
-    // mock output
+function App (props) {
+  const [state,setState] = useState({data:null,requestParams:{}})
+  function callApi (requestParams){
     const data = {
       count: 2,
       results: [
@@ -28,21 +20,18 @@ class App extends React.Component {
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
     };
-    this.setState({data, requestParams});
+    setState({data, requestParams});
   }
-
-  render() {
-    return (
-      <>
-        <Header />
-        <div>Request Method: {this.state.requestParams.method}</div>
-        <div>URL: {this.state.requestParams.url}</div>
-        <Form handleApiCall={this.callApi} />
-        <Results data={this.state.data} />
+return (
+  <>
+  <Header />
+        <div data-testid='method'>Request Method: {state.requestParams.method}</div>
+        <div>URL: {state.requestParams.url}</div>
+        <Form handleApiCall={callApi} />
+        <Results data={state.data} />
         <Footer />
-      </>
-    );
-  }
+  </>
+)
 }
 
 export default App;

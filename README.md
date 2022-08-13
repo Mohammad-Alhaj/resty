@@ -1,5 +1,8 @@
 # Component Based UI
 
+## Test
+![](test.png)
+
 ## Lab Requirements
 
 Students will be creating and styling a Counter application. Look for the following attributes
