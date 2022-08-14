@@ -1,8 +1,12 @@
 # Component Based UI
 
 ## Test
-![](test.png)
+![](./asset/test.png)
 
+
+## UML
+
+![](./asset/use%20state%20react.png)
 ## Lab Requirements
 
 Students will be creating and styling a Counter application. Look for the following attributes
