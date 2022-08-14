@@ -11,24 +11,24 @@ import Results from './components/results';
 
 
 function App (props) {
-  const [state,setState] = useState({data:null,requestParams:{}})
-  function callApi (requestParams){
-    const data = {
-      count: 2,
-      results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-      ],
-    };
-    setState({data, requestParams});
+  const [data, setData] = useState(null);
+  const [requestParams, setRequestParams] = useState({});
+
+ async function callApi  (requestParams){
+    const response = await fetch(requestParams.url);
+    const data = await response.json();              
+    setData(data);
+    setRequestParams(requestParams)
   }
 return (
   <>
   <Header />
-        <div data-testid='method'>Request Method: {state.requestParams.method}</div>
-        <div>URL: {state.requestParams.url}</div>
+
+        <p data-testid='method'>Request Method: {requestParams.method}</p>
+       
+        <div>URL: {requestParams.url}</div>
         <Form handleApiCall={callApi} />
-        <Results data={state.data} />
+        <Results data={data} method ={requestParams.method}/>
         <Footer />
   </>
 )
