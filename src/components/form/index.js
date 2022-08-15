@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from 'react'
 
 import './form.scss';
+import'./form.css'
 
 
 function Form(props){
@@ -35,10 +36,10 @@ const [url,setUrl] =useState('')
             <button type="submit">GO!</button>
           </label>
           <label className="methods">
-            <button data-testid='GET' onClick={()=>setMethod('GET')}>GET</button>
-            <button  data-testid='POST'onClick={()=>setMethod('POST')}>POST</button>
-            <button data-testid='PUT' onClick={()=>setMethod('PUT')}>PUT</button>
-            <button data-testid='DELETE'onClick={()=>setMethod('DELETE')}>DELETE</button>
+            <span data-testid='GET' onClick={()=>setMethod('GET')}>GET</span>
+            <span  data-testid='POST'onClick={()=>setMethod('POST')}>POST</span>
+            <span data-testid='PUT' onClick={()=>setMethod('PUT')}>PUT</span>
+            <span data-testid='DELETE'onClick={()=>setMethod('DELETE')}>DELETE</span>
           </label>
             <div>URL : https://pokeapi.co/api/v2/pokemon </div>
           {(method === 'PUT' || method === 'POST')?

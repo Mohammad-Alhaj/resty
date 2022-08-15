@@ -1,25 +1,36 @@
 import React from 'react';
-
+import './results.css'
 
 
 function Results(props){
-  console.log(props.method)
-
-let post ={
-  status:'You update successfully'
-}
-return(
-  <>
+  
+  
+  
+  return(
+    <>
   <section>
 <pre>
 
+    {props.method !== 'GET'?
+    <div className='loading'>
+  <div class="load-wrapp">
+      <div class="load-3">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+  
+  
+</div>
+    
+    :null}
 {
 props.method === "GET"  ? 
 JSON.stringify(props.data,undefined,2):
 null
 
 }
-{props.method === 'POST'? <div>{post.status}</div>:null}
 
 </pre>
 
