@@ -2,6 +2,7 @@ import React from 'react';
 import {useState} from 'react'
 
 import './form.scss';
+import'./form.css'
 
 
 function Form(props){
