@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import './app.scss';
 
 // Let's talk about using index.js and some other name in the component folder
@@ -20,10 +20,6 @@ function App (props) {
     setData(data);
     setRequestParams(requestParams)
   }
-  useEffect(()=>{
-    setData(data)
-    console.log('From use effect')
-  },[data])
 return (
   <>
   <Header />
